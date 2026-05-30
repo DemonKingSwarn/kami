@@ -1,7 +1,7 @@
 #define NOB_IMPLEMENTATION
 #include "nob.h"
 
-const char *cflags[] = {"-I./include", "./lib/libraylib.a", "-lGL", "-lm", "-lpthread", "-ldl", "-lrt", "-lubsan", "-pedantic"};
+const char *flags[] = {"-I./include", "./lib/libraylib.a", "-lGL", "-lm", "-lpthread", "-ldl", "-lrt", "-lubsan", "-pedantic"};
 
 const char *exe = "main";
 
@@ -15,8 +15,8 @@ int main(int argc, char **argv) {
   cmd.count = 0;
 
   nob_cmd_append(&cmd, "clang", "main.c");
-  for (size_t i = 0; i < NOB_ARRAY_LEN(cflags); i++) {
-    nob_cmd_append(&cmd, cflags[i]);
+  for (size_t i = 0; i < NOB_ARRAY_LEN(flags); i++) {
+    nob_cmd_append(&cmd, flags[i]);
   }
 
   char buf[256];
